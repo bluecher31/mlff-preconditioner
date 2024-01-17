@@ -180,4 +180,6 @@ src/sGDML/aims_catcher-unknown-train10-sym1.npz
 src/sGDML/ethanol-aims.PBE.TS.light.tier.1-train100-sym6.npz
 src/sGDML/larger_aims_nanotube-unknown-train5-sym1.npz
 src/sGDML/uracil-aims.PBE.TS.light.tier.1-train100-sym1.npz
-src/figures/paper_plots/~$low_rank_solver.drawio.bkp
+/src/sGDML/ethanol-aims.PBE.TS.light.tier.1-train200-sym6.npz
+/src/sGDML/sgdml/_bmark_cache.npz
+/src/sGDML/model.npz

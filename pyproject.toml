@@ -1,0 +1,13 @@
+[project]
+name = "sample"
+version = "0.1" 
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+select = ["E", "F", "W", "D"] # pycodestyle(E,W), pyflakes (F), pydocstyle(D)

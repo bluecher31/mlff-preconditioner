@@ -158,3 +158,26 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
+
+
+# Custom
+data/
+
+src/project/sGDML/ethanol_dft.npz
+src/project/sGDML/aspirin_ccsd-test.npz
+src/project/sGDML/aspirin_ccsd-train.npz
+src/project/sGDML/aspirin_dft.npz
+src/project/sGDML/paracetamol_dft.npz
+src/project/sGDML/benzene_dft.npz
+src/project/sGDML/uracil_dft.npz
+src/project/sGDML/aims_catcher.npz
+src/project/sGDML/azobenzene_dft.npz
+src/project/sGDML/larger_aims_nanotube.npz
+src/project/sGDML/toluene_dft.npz
+
+src/project/sGDML/aims_catcher-sym4_200_20.npz
+src/project/sGDML/aims_catcher-unknown-train10-sym1.npz
+src/project/sGDML/ethanol-aims.PBE.TS.light.tier.1-train100-sym6.npz
+src/project/sGDML/larger_aims_nanotube-unknown-train5-sym1.npz
+src/project/sGDML/uracil-aims.PBE.TS.light.tier.1-train100-sym1.npz
+src/project/figures/paper_plots/~$low_rank_solver.drawio.bkp

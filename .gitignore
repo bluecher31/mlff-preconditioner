@@ -163,21 +163,21 @@ cython_debug/
 # Custom
 data/
 
-src/project/sGDML/ethanol_dft.npz
-src/project/sGDML/aspirin_ccsd-test.npz
-src/project/sGDML/aspirin_ccsd-train.npz
-src/project/sGDML/aspirin_dft.npz
-src/project/sGDML/paracetamol_dft.npz
-src/project/sGDML/benzene_dft.npz
-src/project/sGDML/uracil_dft.npz
-src/project/sGDML/aims_catcher.npz
-src/project/sGDML/azobenzene_dft.npz
-src/project/sGDML/larger_aims_nanotube.npz
-src/project/sGDML/toluene_dft.npz
+src/sGDML/ethanol_dft.npz
+src/sGDML/aspirin_ccsd-test.npz
+src/sGDML/aspirin_ccsd-train.npz
+src/sGDML/aspirin_dft.npz
+src/sGDML/paracetamol_dft.npz
+src/sGDML/benzene_dft.npz
+src/sGDML/uracil_dft.npz
+src/sGDML/aims_catcher.npz
+src/sGDML/azobenzene_dft.npz
+src/sGDML/larger_aims_nanotube.npz
+src/sGDML/toluene_dft.npz
 
-src/project/sGDML/aims_catcher-sym4_200_20.npz
-src/project/sGDML/aims_catcher-unknown-train10-sym1.npz
-src/project/sGDML/ethanol-aims.PBE.TS.light.tier.1-train100-sym6.npz
-src/project/sGDML/larger_aims_nanotube-unknown-train5-sym1.npz
-src/project/sGDML/uracil-aims.PBE.TS.light.tier.1-train100-sym1.npz
-src/project/figures/paper_plots/~$low_rank_solver.drawio.bkp
+src/sGDML/aims_catcher-sym4_200_20.npz
+src/sGDML/aims_catcher-unknown-train10-sym1.npz
+src/sGDML/ethanol-aims.PBE.TS.light.tier.1-train100-sym6.npz
+src/sGDML/larger_aims_nanotube-unknown-train5-sym1.npz
+src/sGDML/uracil-aims.PBE.TS.light.tier.1-train100-sym1.npz
+src/figures/paper_plots/~$low_rank_solver.drawio.bkp

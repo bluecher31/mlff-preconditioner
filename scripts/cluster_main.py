@@ -13,7 +13,7 @@ def initialize_parser():
 
     # general input
     parser.add_argument('--n_measurements', default=1)
-    parser.add_argument('--name_dataset', default=['ethanol'], nargs='+',
+    parser.add_argument('--name_dataset', default=['nanotube'], nargs='+',
                         choices=['aspirin', 'uracil', 'ethanol', 'azobenzene', 'toluene',
                                  'catcher', 'nanotube'])
     parser.add_argument('--min_columns', type=int, default=250, help='absolut number of columns used as smallest'

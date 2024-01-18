@@ -26,3 +26,9 @@ pip install -e .
 sgdml-get dataset aspirin_dft
 sgdml-get dataset ethanol_dft
 ```
+
+
+## Experiments
+You can start new experiments by executing `cluster_main.py`. Per default the script will load the nanotube dataset.
+To load a different dataset first download the corresponding file via `sgdml-get dataset ethanol_dft` into the `data/` 
+folder and then change argparser accordingly. 

@@ -5,7 +5,7 @@ import numpy as np
 
 from . import custom_cg_solver as custom_cg
 from . import utils
-from sGDML.sgdml import train
+from ..sGDML.sgdml import train
 
 from datetime import datetime
 import pickle
@@ -25,14 +25,17 @@ def get_dataset(path_to_script: str, name_dataset: str):
     if path_to_script.startswith('.') is True:       # convert to absolute path
         path_to_script = os.path.abspath(path_to_script)
     path_to_datafolder = os.path.join(path_to_script, 'sGDML/')
+    path_to_datafolder = Path(path_to_script).parent / 'data'
+    assert path_to_datafolder.exists(), 'Data folder does not exists.'
     if available_datasets.__contains__(name_dataset):
-        dataset = np.load(f'{path_to_datafolder}{name_dataset}_dft.npz')
+        file_name = f'{name_dataset}_dft.npz'
     elif name_dataset == 'nanotube':
-        dataset = np.load(f'{path_to_datafolder}larger_aims_{name_dataset}.npz')
+        file_name = f'larger_aims_{name_dataset}.npz'
     elif name_dataset == 'catcher':
-        dataset = np.load(f'{path_to_datafolder}aims_{name_dataset}.npz')
+        file_name = f'aims_{name_dataset}.npz'
     else:
         assert False, f'incorrect input dataset: {name_dataset}'
+    dataset = np.load(str(path_to_datafolder / file_name))
     return dataset
 
 

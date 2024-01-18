@@ -169,7 +169,7 @@ src/sGDML/aspirin_ccsd-train.npz
 src/sGDML/aspirin_dft.npz
 src/sGDML/paracetamol_dft.npz
 src/sGDML/benzene_dft.npz
-src/sGDML/uracil_dft.npz
+data/uracil_dft.npz
 src/sGDML/aims_catcher.npz
 src/sGDML/azobenzene_dft.npz
 src/sGDML/larger_aims_nanotube.npz

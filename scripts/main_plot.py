@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 import pickle
 import glob
 
-from tools import plot_data, create_data
-from tools import init_plt as c_plt
+from src.tools import plot_data, create_data
+from src.tools import init_plt as c_plt
 
 from typing import Dict, List
 from pathlib import Path
@@ -67,10 +67,10 @@ def load_data_new(dataset: str, preconditioners: List[str], n_train: int, extrac
 if __name__ == '__main__':
     c_plt.update_rcParams(half_size_image=False)
     # plot_data.visualize_rule_of_thumb()
-
+    folder_data = '../data/'
     path_data = 'data/cg_performance_n=15750/2022-03-17_2333_ethanol_points583_meas31'
     # path_data = 'data/cg_truncated_cholesky/2022-03-17_2333_ethanol_points583_meas31'
-    dic_data = pickle.load(open(path_data, 'rb'))
+    dic_data = pickle.load(open(folder_data + path_data, 'rb'))
     # plot_data.time_cholesky()
     # plot_data.cg_steps(dic_data, plot_save=False, title='old')
 
@@ -90,8 +90,8 @@ if __name__ == '__main__':
 
     # compare methods for multiple molecule
     path_data = 'data/cg_performance_n=15750/2022-03-17_0905_aspirin_points250_meas31'
-    dict_data = pickle.load(open(path_data, 'rb'))
-    # plot_data.cg_steps(dic_data, plot_save=False, title='det_lev_scores')
+    dict_data = pickle.load(open(folder_data + path_data, 'rb'))
+    plot_data.cg_steps(dic_data, plot_save=False, title='det_lev_scores')
 
     # plot_data.time_cholesky()
 
@@ -100,37 +100,37 @@ if __name__ == '__main__':
     #     dict_eigvals = pickle.load(open(path_eigvals, 'rb'))
     #     plot_data.eigvals(dict_eigvals, all_labels=['eigvec_precon', 'lev_random', 'cholesky', 'random_scores'],
     #                       n_eigvals=150)
-    path_eigvals_aspirin = glob.glob('data/eigenvalues/2022-*aspirin*meas*_eigvals')[0]
+    path_eigvals_aspirin = glob.glob(folder_data + 'data/eigenvalues/2022-*aspirin*meas*_eigvals')[0]
     plot_data.eigvals_schematic(dict_data=pickle.load(open(path_eigvals_aspirin, 'rb')))
 
-    # path_eigvals = 'data/eigenvalues/2022-07-12_1124_aspirin_points25_meas5_eigvals_jacobi'
+    path_eigvals = 'data/eigenvalues/2022-07-12_1124_aspirin_points25_meas5_eigvals_jacobi'
     # path_eigvals = '2022-09-08_1505_catcher_points13_meas3_eigvals'
-    # dict_eigvals = pickle.load(open(path_eigvals, 'rb'))
-    # plot_data.eigvals(dict_eigvals)
+    dict_eigvals = pickle.load(open(folder_data + path_eigvals, 'rb'))
+    plot_data.eigvals(dict_eigvals)
 
     path_ridge_levscores = 'data/ridge_leverage_scores/ridge_levscores_aspirin_15750'
-    dict_ridge = pickle.load(open(path_ridge_levscores, 'rb'))
+    dict_ridge = pickle.load(open(folder_data + path_ridge_levscores, 'rb'))
     # plot_data.visualize_ridge_leverage_scores(dict_ridge)
 
-    list_data = glob.glob(pathname='data/cg_performance_n=15750_detailed/2022*')        # use for paper selection
+    list_data = glob.glob(pathname=folder_data + 'data/cg_performance_n=15750_detailed/2022*')        # use for paper selection
     # list_data = glob.glob(pathname='data/cg_performance_n=15750/2022*')               # use for all molecules
     list_data_dict = [pickle.load(open(p, 'rb')) for p in list_data]
-    # plot_data.cg_performance_multiple_molecules(list_data_dict=list_data_dict, selection='paper_old')
+    plot_data.cg_performance_multiple_molecules(list_data_dict=list_data_dict, selection='paper_old')
 
     path_data = 'data/preconditioner_size/2021-12-23_0008_aspirin_points1000_meas5'
-    dict_precon_aspirin = pickle.load(open(path_data, 'rb'))
-    # plot_data.preconditioner_size(dict_data=dict_precon_aspirin)
+    dict_precon_aspirin = pickle.load(open(folder_data + path_data, 'rb'))
+    plot_data.preconditioner_size(dict_data=dict_precon_aspirin)
 
-    list_molecules_preoconditioner_size = glob.glob('data/rule_of_thumb/estimate_slope, nmax = 31 500/*')
-    # plot_data.preconditioner_size_molecules(list_dict_molecules=[pickle.load(open(path_file, 'rb'))
-    #                                                              for path_file in list_molecules_preoconditioner_size])
+    list_molecules_preoconditioner_size = glob.glob(folder_data + 'data/rule_of_thumb/estimate_slope, nmax = 31 500/*')
+    plot_data.preconditioner_size_molecules(list_dict_molecules=[pickle.load(open(path_file, 'rb'))
+                                                                 for path_file in list_molecules_preoconditioner_size])
 
 
     path_file = 'data/rule_of_thumb/estimate_slope, nmax = 31 500/2022310_1407_precon_size_aspirin_min100_max500'
-    dict_train = pickle.load(open(path_file, 'rb'))
+    dict_train = pickle.load(open(folder_data + path_file, 'rb'))
 
     path_file = 'data/202235_0853_precon_size_aspirin_min1000_max1000'
-    dict_test = pickle.load(open(path_file, 'rb'))
+    dict_test = pickle.load(open(folder_data + path_file, 'rb'))
 
     # all_molecules_filepath = glob.glob('data/rule_of_thumb/estimate_slope, nmax = 31 500/2022*')
     all_molecules_filepath = glob.glob('data/rule_of_thumb/n = 75000/2022*')
@@ -144,21 +144,20 @@ if __name__ == '__main__':
             if dict_molecule_small['dataset_name'] == dict_molecule['dataset_name']:
                 break
         # plot_data.measure_slope(dict_train=dict_molecule)       # predicts hyperparams for rule of thumb
-        # plot_data.rule_of_thumb(dict_train=dict_molecule_small, dict_test=dict_molecule)
+        plot_data.rule_of_thumb(dict_train=dict_molecule_small, dict_test=dict_molecule)
 
         # plot_data.computational_cost_molecule(dict_molecule)    # plots runtimes with optimal preconsizes
         # plot_data.measure_optimal_k(dict_train=dict_molecule)   # calculates optimal k for different methods
 
-    # plot_data.bar_plot_rule_of_thumb(path_to_data='/Users/sbluecher/Documents/University/git/cholesky/project/figures/paper_plots/rule_of_thumb.csv')
-    # select_matrix_size = [75000, 158000, 500000]
-    # for n in select_matrix_size:
-    #     plot_data.bar_plot_rule_of_thumb_single_experiment(n=n,
-    #         path_to_data='/Users/sbluecher/Documents/University/git/cholesky/project/figures/paper_plots/rule_of_thumb.csv')
+    plot_data.bar_plot_rule_of_thumb(path_to_data=folder_data + '/rule_of_thumb.csv')
+    select_matrix_size = [75000, 158000, 500000]
+    for n in select_matrix_size:
+        plot_data.bar_plot_rule_of_thumb_single_experiment(n=n, path_to_data=folder_data + '/rule_of_thumb.csv')
 
     # collect CPU/GPU information
     select_matrix_size = [75000, 157500, 500000]
     list_dict_cgpu = [plot_data.get_cpugpu_info([pickle.load(open(path, 'rb')) for path in
-                                                      glob.glob(f'data/rule_of_thumb/n = {n}/2022*')])
+                                                      glob.glob(folder_data + f'data/rule_of_thumb/n = {n}/2022*')])
                       for n in select_matrix_size]
     df_all_runs = pd.concat(list_dict_cgpu)
     # print(df_all_runs.to_latex(columns=['Ethanol', 'Uracil'], sparsify=True))

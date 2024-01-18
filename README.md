@@ -18,13 +18,10 @@ In particular, this repository provides access to a wide-range of possible preco
 
 ## Installation
 ```
-conda create --name cholesky python=3.7 numpy scipy matplotlib tqdm scikit-learn jupyter
-conda activate cholesky
-conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
-cd project/sGDML
+conda env create -n mlff-preconditioner --file environment.yml
+conda activate mlff-preconditioner
+cd src/sGDML
 pip install -e . 
-sgdml-get dataset aspirin_dft
-sgdml-get dataset ethanol_dft
 ```
 
 
